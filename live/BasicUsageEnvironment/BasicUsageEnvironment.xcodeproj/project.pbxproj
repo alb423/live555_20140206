@@ -18,12 +18,14 @@
 		B2EB8D8A19586E380058A962 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		B2EB8D8B19586E380058A962 /* Makefile.head */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
 		B2EB8D8C19586E380058A962 /* Makefile.tail */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+		B2EB925A1958839A0058A962 /* UsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UsageEnvironment.xcodeproj; path = ../UsageEnvironment/UsageEnvironment.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		B2EB8D7C19586E380058A962 = {
 			isa = PBXGroup;
 			children = (
+				B2EB925A1958839A0058A962 /* UsageEnvironment.xcodeproj */,
 				B2EB8D8219586E380058A962 /* BasicHashTable.cpp */,
 				B2EB8D8319586E380058A962 /* BasicTaskScheduler.cpp */,
 				B2EB8D8419586E380058A962 /* BasicTaskScheduler0.cpp */,
@@ -36,6 +38,13 @@
 				B2EB8D8B19586E380058A962 /* Makefile.head */,
 				B2EB8D8C19586E380058A962 /* Makefile.tail */,
 			);
+			sourceTree = "<group>";
+		};
+		B2EB925B1958839A0058A962 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +80,12 @@
 			);
 			mainGroup = B2EB8D7C19586E380058A962;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B2EB925B1958839A0058A962 /* Products */;
+					ProjectRef = B2EB925A1958839A0058A962 /* UsageEnvironment.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B2EB8D8119586E380058A962 /* BasicUsageEnvironment */,

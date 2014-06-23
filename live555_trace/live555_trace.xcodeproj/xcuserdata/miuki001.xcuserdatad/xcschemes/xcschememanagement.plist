@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>live555_iPhoneSimulator.xcscheme</key>
+		<key>live555_trace.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B2EB8F3419587E220058A962</key>
+		<key>B2EB9198195881560058A962</key>
 		<dict>
 			<key>primary</key>
 			<true/>

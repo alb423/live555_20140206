@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2EB8F3419587E220058A962"
-               BuildableName = "live555_iPhoneSimulator"
-               BlueprintName = "live555_iPhoneSimulator"
-               ReferencedContainer = "container:live555_iPhoneSimulator.xcodeproj">
+               BlueprintIdentifier = "B2EB9198195881560058A962"
+               BuildableName = "live555_trace"
+               BlueprintName = "live555_trace"
+               ReferencedContainer = "container:live555_trace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B2EB9198195881560058A962"
+            BuildableName = "live555_trace"
+            BlueprintName = "live555_trace"
+            ReferencedContainer = "container:live555_trace.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,6 +48,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B2EB9198195881560058A962"
+            BuildableName = "live555_trace"
+            BlueprintName = "live555_trace"
+            ReferencedContainer = "container:live555_trace.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -48,6 +66,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B2EB9198195881560058A962"
+            BuildableName = "live555_trace"
+            BlueprintName = "live555_trace"
+            ReferencedContainer = "container:live555_trace.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

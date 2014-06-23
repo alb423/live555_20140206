@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2EB8EB8195876860058A962"
+               BlueprintIdentifier = "B2EB91EA195881DE0058A962"
                BuildableName = "testProgs"
                BlueprintName = "testProgs"
                ReferencedContainer = "container:testProgs.xcodeproj">
@@ -39,18 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <PathRunnable
-         FilePath = "/Users/miuki001/Work/live555_20140206/live/testProgs/testRTSPClient">
-      </PathRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2EB8EB8195876860058A962"
-            BuildableName = "testProgs"
-            BlueprintName = "testProgs"
-            ReferencedContainer = "container:testProgs.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
