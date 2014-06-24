@@ -29,16 +29,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9A87361E195915C70072620E /* liveMedia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = liveMedia.xcodeproj; path = ../live/liveMedia/liveMedia.xcodeproj; sourceTree = "<group>"; };
+		9A873622195915D90072620E /* UsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UsageEnvironment.xcodeproj; path = ../live/UsageEnvironment/UsageEnvironment.xcodeproj; sourceTree = "<group>"; };
 		B2EB9199195881560058A962 /* live555_trace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = live555_trace; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EB919C195881560058A962 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B2EB919E195881560058A962 /* live555_trace.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = live555_trace.1; sourceTree = "<group>"; };
 		B2EB91CD195881910058A962 /* BasicUsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BasicUsageEnvironment.xcodeproj; path = ../live/BasicUsageEnvironment/BasicUsageEnvironment.xcodeproj; sourceTree = "<group>"; };
 		B2EB91D11958819C0058A962 /* groupsock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = groupsock.xcodeproj; path = ../live/groupsock/groupsock.xcodeproj; sourceTree = "<group>"; };
-		B2EB91D9195881B10058A962 /* liveMedia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = liveMedia.xcodeproj; path = /Users/miuki001/Work/live555_20140206/live/BasicUsageEnvironment/../liveMedia/liveMedia.xcodeproj; sourceTree = "<absolute>"; };
 		B2EB91DD195881C60058A962 /* mediaServer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mediaServer.xcodeproj; path = ../live/mediaServer/mediaServer.xcodeproj; sourceTree = "<group>"; };
 		B2EB91E1195881CE0058A962 /* proxyServer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = proxyServer.xcodeproj; path = ../live/proxyServer/proxyServer.xcodeproj; sourceTree = "<group>"; };
 		B2EB9256195881DF0058A962 /* testProgs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = testProgs.xcodeproj; path = ../live/testProgs/testProgs.xcodeproj; sourceTree = "<group>"; };
-		B2EB925E195883A10058A962 /* UsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UsageEnvironment.xcodeproj; path = /Users/miuki001/Work/live555_20140206/live/BasicUsageEnvironment/../UsageEnvironment/UsageEnvironment.xcodeproj; sourceTree = "<absolute>"; };
 		B2EB92661958861B0058A962 /* libliveMedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libliveMedia.a; path = ../live/liveMedia/libliveMedia.a; sourceTree = "<group>"; };
 		B2EB92681958862C0058A962 /* libgroupsock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgroupsock.a; path = ../live/groupsock/libgroupsock.a; sourceTree = "<group>"; };
 		B2EB926A195886390058A962 /* libBasicUsageEnvironment.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBasicUsageEnvironment.a; path = ../live/BasicUsageEnvironment/libBasicUsageEnvironment.a; sourceTree = "<group>"; };
@@ -60,6 +60,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A87361F195915C70072620E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A873623195915D90072620E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B2EB9190195881560058A962 = {
 			isa = PBXGroup;
 			children = (
@@ -69,11 +83,11 @@
 				B2EB92661958861B0058A962 /* libliveMedia.a */,
 				B2EB919B195881560058A962 /* live555_trace */,
 				B2EB919A195881560058A962 /* Products */,
+				9A873622195915D90072620E /* UsageEnvironment.xcodeproj */,
+				9A87361E195915C70072620E /* liveMedia.xcodeproj */,
 				B2EB9256195881DF0058A962 /* testProgs.xcodeproj */,
-				B2EB925E195883A10058A962 /* UsageEnvironment.xcodeproj */,
 				B2EB91DD195881C60058A962 /* mediaServer.xcodeproj */,
 				B2EB91E1195881CE0058A962 /* proxyServer.xcodeproj */,
-				B2EB91D9195881B10058A962 /* liveMedia.xcodeproj */,
 				B2EB91D11958819C0058A962 /* groupsock.xcodeproj */,
 				B2EB91CD195881910058A962 /* BasicUsageEnvironment.xcodeproj */,
 			);
@@ -110,13 +124,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B2EB91DA195881B10058A962 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B2EB91DE195881C60058A962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,13 +139,6 @@
 			sourceTree = "<group>";
 		};
 		B2EB9257195881DF0058A962 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B2EB925F195883A10058A962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -194,8 +194,8 @@
 					ProjectRef = B2EB91D11958819C0058A962 /* groupsock.xcodeproj */;
 				},
 				{
-					ProductGroup = B2EB91DA195881B10058A962 /* Products */;
-					ProjectRef = B2EB91D9195881B10058A962 /* liveMedia.xcodeproj */;
+					ProductGroup = 9A87361F195915C70072620E /* Products */;
+					ProjectRef = 9A87361E195915C70072620E /* liveMedia.xcodeproj */;
 				},
 				{
 					ProductGroup = B2EB91DE195881C60058A962 /* Products */;
@@ -210,8 +210,8 @@
 					ProjectRef = B2EB9256195881DF0058A962 /* testProgs.xcodeproj */;
 				},
 				{
-					ProductGroup = B2EB925F195883A10058A962 /* Products */;
-					ProjectRef = B2EB925E195883A10058A962 /* UsageEnvironment.xcodeproj */;
+					ProductGroup = 9A873623195915D90072620E /* Products */;
+					ProjectRef = 9A873622195915D90072620E /* UsageEnvironment.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -365,6 +365,7 @@
 				B2EB91A4195881560058A962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
