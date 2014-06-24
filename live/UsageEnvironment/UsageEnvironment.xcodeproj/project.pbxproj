@@ -7,42 +7,52 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		B2EB8EA419586E780058A962 /* COPYING */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
-		B2EB8EA519586E780058A962 /* HashTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
-		B2EB8EA619586E780058A962 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
-		B2EB8EA719586E780058A962 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		B2EB8EA819586E780058A962 /* Makefile.head */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
-		B2EB8EA919586E780058A962 /* Makefile.tail */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
-		B2EB8EAA19586E780058A962 /* strDup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = strDup.cpp; sourceTree = "<group>"; };
-		B2EB8EAB19586E780058A962 /* UsageEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UsageEnvironment.cpp; sourceTree = "<group>"; };
+		9A87362C195916AA0072620E /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		9A87362D195916AA0072620E /* COPYING */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		9A87362E195916AA0072620E /* HashTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		9A87362F195916AA0072620E /* HashTable.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = HashTable.o; sourceTree = "<group>"; };
+		9A873630195916AA0072620E /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		9A873631195916AA0072620E /* libUsageEnvironment.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUsageEnvironment.a; sourceTree = "<group>"; };
+		9A873632195916AA0072620E /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		9A873633195916AA0072620E /* Makefile.head */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
+		9A873634195916AA0072620E /* Makefile.tail */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+		9A873635195916AA0072620E /* strDup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = strDup.cpp; sourceTree = "<group>"; };
+		9A873636195916AA0072620E /* strDup.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = strDup.o; sourceTree = "<group>"; };
+		9A873637195916AA0072620E /* UsageEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UsageEnvironment.cpp; sourceTree = "<group>"; };
+		9A873638195916AA0072620E /* UsageEnvironment.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = UsageEnvironment.o; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		B2EB8E9E19586E780058A962 = {
+		9A873626195916AA0072620E = {
 			isa = PBXGroup;
 			children = (
-				B2EB8EA419586E780058A962 /* COPYING */,
-				B2EB8EA519586E780058A962 /* HashTable.cpp */,
-				B2EB8EA619586E780058A962 /* include */,
-				B2EB8EA719586E780058A962 /* Makefile */,
-				B2EB8EA819586E780058A962 /* Makefile.head */,
-				B2EB8EA919586E780058A962 /* Makefile.tail */,
-				B2EB8EAA19586E780058A962 /* strDup.cpp */,
-				B2EB8EAB19586E780058A962 /* UsageEnvironment.cpp */,
+				9A87362C195916AA0072620E /* .DS_Store */,
+				9A87362D195916AA0072620E /* COPYING */,
+				9A87362E195916AA0072620E /* HashTable.cpp */,
+				9A87362F195916AA0072620E /* HashTable.o */,
+				9A873630195916AA0072620E /* include */,
+				9A873631195916AA0072620E /* libUsageEnvironment.a */,
+				9A873632195916AA0072620E /* Makefile */,
+				9A873633195916AA0072620E /* Makefile.head */,
+				9A873634195916AA0072620E /* Makefile.tail */,
+				9A873635195916AA0072620E /* strDup.cpp */,
+				9A873636195916AA0072620E /* strDup.o */,
+				9A873637195916AA0072620E /* UsageEnvironment.cpp */,
+				9A873638195916AA0072620E /* UsageEnvironment.o */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		B2EB8EA319586E780058A962 /* UsageEnvironment */ = {
+		9A87362B195916AA0072620E /* UsageEnvironment */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = B2EB8EAC19586E780058A962 /* Build configuration list for PBXLegacyTarget "UsageEnvironment" */;
+			buildConfigurationList = 9A873639195916AA0072620E /* Build configuration list for PBXLegacyTarget "UsageEnvironment" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/miuki001/Work/live555_20140206/live/UsageEnvironment;
+			buildWorkingDirectory = /Users/liaokuohsun/Work/live555_20140206/live/UsageEnvironment;
 			dependencies = (
 			);
 			name = UsageEnvironment;
@@ -52,28 +62,28 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXProject section */
-		B2EB8E9F19586E780058A962 /* Project object */ = {
+		9A873627195916AA0072620E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = B2EB8EA219586E780058A962 /* Build configuration list for PBXProject "UsageEnvironment" */;
+			buildConfigurationList = 9A87362A195916AA0072620E /* Build configuration list for PBXProject "UsageEnvironment" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = B2EB8E9E19586E780058A962;
+			mainGroup = 9A873626195916AA0072620E;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B2EB8EA319586E780058A962 /* UsageEnvironment */,
+				9A87362B195916AA0072620E /* UsageEnvironment */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin XCBuildConfiguration section */
-		B2EB8EA019586E780058A962 /* Debug */ = {
+		9A873628195916AA0072620E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -81,22 +91,22 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
-		B2EB8EA119586E780058A962 /* Release */ = {
+		9A873629195916AA0072620E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
-		B2EB8EAD19586E780058A962 /* Debug */ = {
+		9A87363A195916AA0072620E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -108,11 +118,10 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = UsageEnvironment;
-				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
-		B2EB8EAE19586E780058A962 /* Release */ = {
+		9A87363B195916AA0072620E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -121,32 +130,31 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = UsageEnvironment;
-				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B2EB8EA219586E780058A962 /* Build configuration list for PBXProject "UsageEnvironment" */ = {
+		9A87362A195916AA0072620E /* Build configuration list for PBXProject "UsageEnvironment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B2EB8EA019586E780058A962 /* Debug */,
-				B2EB8EA119586E780058A962 /* Release */,
+				9A873628195916AA0072620E /* Debug */,
+				9A873629195916AA0072620E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B2EB8EAC19586E780058A962 /* Build configuration list for PBXLegacyTarget "UsageEnvironment" */ = {
+		9A873639195916AA0072620E /* Build configuration list for PBXLegacyTarget "UsageEnvironment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B2EB8EAD19586E780058A962 /* Debug */,
-				B2EB8EAE19586E780058A962 /* Release */,
+				9A87363A195916AA0072620E /* Debug */,
+				9A87363B195916AA0072620E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B2EB8E9F19586E780058A962 /* Project object */;
+	rootObject = 9A873627195916AA0072620E /* Project object */;
 }

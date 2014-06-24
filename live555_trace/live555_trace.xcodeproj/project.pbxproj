@@ -29,8 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9A87361E195915C70072620E /* liveMedia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = liveMedia.xcodeproj; path = ../live/liveMedia/liveMedia.xcodeproj; sourceTree = "<group>"; };
-		9A873622195915D90072620E /* UsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UsageEnvironment.xcodeproj; path = ../live/UsageEnvironment/UsageEnvironment.xcodeproj; sourceTree = "<group>"; };
+		9A87363C195916AA0072620E /* UsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UsageEnvironment.xcodeproj; path = ../live/UsageEnvironment/UsageEnvironment.xcodeproj; sourceTree = "<group>"; };
+		9A873704195916D70072620E /* liveMedia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = liveMedia.xcodeproj; path = ../live/liveMedia/liveMedia.xcodeproj; sourceTree = "<group>"; };
 		B2EB9199195881560058A962 /* live555_trace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = live555_trace; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EB919C195881560058A962 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B2EB919E195881560058A962 /* live555_trace.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = live555_trace.1; sourceTree = "<group>"; };
@@ -60,14 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A87361F195915C70072620E /* Products */ = {
+		9A87363D195916AA0072620E /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A873623195915D90072620E /* Products */ = {
+		9A873705195916D70072620E /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -83,8 +83,8 @@
 				B2EB92661958861B0058A962 /* libliveMedia.a */,
 				B2EB919B195881560058A962 /* live555_trace */,
 				B2EB919A195881560058A962 /* Products */,
-				9A873622195915D90072620E /* UsageEnvironment.xcodeproj */,
-				9A87361E195915C70072620E /* liveMedia.xcodeproj */,
+				9A873704195916D70072620E /* liveMedia.xcodeproj */,
+				9A87363C195916AA0072620E /* UsageEnvironment.xcodeproj */,
 				B2EB9256195881DF0058A962 /* testProgs.xcodeproj */,
 				B2EB91DD195881C60058A962 /* mediaServer.xcodeproj */,
 				B2EB91E1195881CE0058A962 /* proxyServer.xcodeproj */,
@@ -194,8 +194,8 @@
 					ProjectRef = B2EB91D11958819C0058A962 /* groupsock.xcodeproj */;
 				},
 				{
-					ProductGroup = 9A87361F195915C70072620E /* Products */;
-					ProjectRef = 9A87361E195915C70072620E /* liveMedia.xcodeproj */;
+					ProductGroup = 9A873705195916D70072620E /* Products */;
+					ProjectRef = 9A873704195916D70072620E /* liveMedia.xcodeproj */;
 				},
 				{
 					ProductGroup = B2EB91DE195881C60058A962 /* Products */;
@@ -210,8 +210,8 @@
 					ProjectRef = B2EB9256195881DF0058A962 /* testProgs.xcodeproj */;
 				},
 				{
-					ProductGroup = 9A873623195915D90072620E /* Products */;
-					ProjectRef = 9A873622195915D90072620E /* UsageEnvironment.xcodeproj */;
+					ProductGroup = 9A87363D195916AA0072620E /* Products */;
+					ProjectRef = 9A87363C195916AA0072620E /* UsageEnvironment.xcodeproj */;
 				},
 			);
 			projectRoot = "";

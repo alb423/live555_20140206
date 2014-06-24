@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2EB8EA319586E780058A962"
+               BlueprintIdentifier = "9A87362B195916AA0072620E"
                BuildableName = "UsageEnvironment"
                BlueprintName = "UsageEnvironment"
                ReferencedContainer = "container:UsageEnvironment.xcodeproj">
