@@ -57,7 +57,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/miuki001/Work/live555_20140206/live/BasicUsageEnvironment;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = BasicUsageEnvironment;

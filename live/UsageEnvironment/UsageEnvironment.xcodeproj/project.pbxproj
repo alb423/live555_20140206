@@ -52,7 +52,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/liaokuohsun/Work/live555_20140206/live/UsageEnvironment;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = UsageEnvironment;

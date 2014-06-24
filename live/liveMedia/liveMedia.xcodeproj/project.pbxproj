@@ -400,7 +400,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/liaokuohsun/Work/live555_20140206/live/liveMedia;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = liveMedia;
