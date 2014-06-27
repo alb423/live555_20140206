@@ -413,6 +413,7 @@
 		9A873641195916D70072620E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = 9A873644195916D70072620E /* Build configuration list for PBXProject "liveMedia" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -434,23 +435,21 @@
 		9A873642195916D70072620E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		9A873643195916D70072620E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -459,10 +458,11 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
+				"DEBUG_INFORMATION_FORMAT[arch=*]" = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = liveMedia;
@@ -474,7 +474,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = liveMedia;
