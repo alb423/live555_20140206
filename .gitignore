@@ -1,2 +1,8 @@
 
 *.o
+
+live/mediaServer/live555MediaServer
+
+live/proxyServer/live555ProxyServer
+
+live/mediaServer/live555MediaServer

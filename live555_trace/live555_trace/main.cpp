@@ -8,12 +8,15 @@
 
 #include <iostream>
 #include "MyRTSPClient.h"
+#include "MyRTSPServer.h"
 
 int main(int argc, const char * argv[])
 {
-    myRTSPClient((char *)"RTSPClient by albert", (char *)"rtsp://192.168.82.71:8554/audioback");
+    //myRTSPClient((char *)"RTSPClient by albert", (char *)"rtsp://192.168.82.71:8554/audioback");
     
-    //myRTSPServer();
+    
+    // use openRTSP rtsp://xxxxx/xxx to test
+    myRTSPServer();
     return 0;
 }
 
