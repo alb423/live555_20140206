@@ -67,11 +67,15 @@ int myRTSPServer(){
     // A H.264 video elementary stream:
     {
         char const* streamName = "h264ESVideoTest";
-        char const* inputFileName = "/Users/liaokuohsun/Downloads/slamtv10.264";
-        char const* audioFileName = "/Users/liaokuohsun/Downloads/test.aac";
+        //char const* inputFileName = "/Users/liaokuohsun/Downloads/slamtv10.264";
+        //char const* audioFileName = "/Users/liaokuohsun/Downloads/test.aac";
+        char const* inputFileName = "/Users/miuki001/Downloads/slamtv10.264";
+        char const* audioFileName = "/Users/miuki001/Downloads/test.aac";
         
         reuseFirstSource = True;
         
+        
+        // Stream 1: H.264 video
         ServerMediaSession* sms
         = ServerMediaSession::createNew(*env, streamName, streamName,
                                         descriptionString);
@@ -80,14 +84,23 @@ int myRTSPServer(){
         
         sms->addSubsession(sub);
         
-        // An AAC audio stream (ADTS-format file):
+        // Stream 2: AAC audio stream (ADTS-format file):
         ADTSAudioFileServerMediaSubsession *sub2 =ADTSAudioFileServerMediaSubsession
             ::createNew(*env, audioFileName, reuseFirstSource);
             
         sms->addSubsession(sub2);
+
+        
+        // Stream 3: backchannel AAC audio
+        // TODO: modify here to support backchannel
+        ADTSAudioFileServerMediaSubsession *sub3 =ADTSAudioFileServerMediaSubsession
+        ::createNew(*env, audioFileName, reuseFirstSource);
+        
+        sms->addSubsession(sub3);
         
         rtspServer->addServerMediaSession(sms);
-
+        
+        
         announceStream(rtspServer, sms, streamName, inputFileName);
     }
     
