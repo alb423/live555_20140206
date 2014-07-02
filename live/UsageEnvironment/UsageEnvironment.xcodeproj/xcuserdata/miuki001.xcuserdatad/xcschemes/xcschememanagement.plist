@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>mediaServer.xcscheme</key>
+		<key>UsageEnvironment.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>7</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B2EB8E7C19586E650058A962</key>
+		<key>9A87362B195916AA0072620E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
