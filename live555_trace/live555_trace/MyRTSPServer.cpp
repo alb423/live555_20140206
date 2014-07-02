@@ -93,6 +93,9 @@ int myRTSPServer(){
         
         // Stream 3: backchannel AAC audio
         // TODO: modify here to support backchannel
+        
+        // use RTPSource to receive data and use ADTSAudioFileSink to save data to file
+        // ADTSBackChannelAudioFileServerMediaSubsession
         ADTSAudioFileServerMediaSubsession *sub3 =ADTSAudioFileServerMediaSubsession
         ::createNew(*env, audioFileName, reuseFirstSource);
         
