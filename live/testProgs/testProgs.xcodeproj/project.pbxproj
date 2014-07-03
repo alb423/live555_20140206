@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		9A731511196567BF0047E165 /* ADTSAudioBufferSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSAudioBufferSource.hh; path = ../../live555_trace/live555_trace/ADTSAudioBufferSource.hh; sourceTree = "<group>"; };
 		B2EB91EB195881DE0058A962 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = text; path = .DS_Store; sourceTree = "<group>"; };
 		B2EB91EC195881DE0058A962 /* COPYING */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		B2EB91ED195881DE0058A962 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		B2EB91E5195881DE0058A962 = {
 			isa = PBXGroup;
 			children = (
+				9A731511196567BF0047E165 /* ADTSAudioBufferSource.hh */,
 				B2EB91EB195881DE0058A962 /* .DS_Store */,
 				B2EB91EC195881DE0058A962 /* COPYING */,
 				B2EB91ED195881DE0058A962 /* Makefile */,
