@@ -9,6 +9,5 @@
 #ifndef __live555_trace__MyRTSPClient__
 #define __live555_trace__MyRTSPClient__
 
-#include <iostream>
 extern int myRTSPClient(char *pInfo, char *pURL);
 #endif /* defined(__live555_trace__MyRTSPClient__) */

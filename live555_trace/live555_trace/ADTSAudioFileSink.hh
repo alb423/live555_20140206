@@ -9,8 +9,6 @@
 #ifndef __live555_trace__ADTSAudioFileSink__
 #define __live555_trace__ADTSAudioFileSink__
 
-//#include <iostream>
-
 #ifndef _FILE_SINK_HH
 #include "FileSink.hh"
 #endif

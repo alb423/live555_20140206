@@ -8,3 +8,7 @@ live/proxyServer/live555ProxyServer
 live/mediaServer/live555MediaServer
 
 *.xcuserstate
+
+*.xcbkptlist
+
+*.xcbkptlist

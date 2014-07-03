@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 #include "AudioUtility.h"
 
 int parseAACADTSString(uint8_t * pInput, tAACADTSHeaderInfo* pADTSHeader)

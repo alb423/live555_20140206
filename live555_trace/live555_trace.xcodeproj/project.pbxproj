@@ -47,7 +47,7 @@
 		B2D1AEA419646A0700BCF985 /* ADTSAudioFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSAudioFileSink.cpp; sourceTree = "<group>"; };
 		B2D1AEA519646A0700BCF985 /* ADTSAudioFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ADTSAudioFileSink.hh; sourceTree = "<group>"; };
 		B2D1AEA91964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSBackChannelAudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
-		B2D1AEAA1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSBackChannelAudioFileServerMediaSubsession.h; sourceTree = "<group>"; };
+		B2D1AEAA1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ADTSBackChannelAudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
 		B2E248AC19658AF1004A602A /* AudioUtility.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AudioUtility.c; sourceTree = "<group>"; };
 		B2E248B519658B6F004A602A /* AudioUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUtility.h; sourceTree = "<group>"; };
 		B2EB9199195881560058A962 /* live555_trace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = live555_trace; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				B2D1AEA91964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */,
-				B2D1AEAA1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.h */,
+				B2D1AEAA1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.hh */,
 				B2D1AEA419646A0700BCF985 /* ADTSAudioFileSink.cpp */,
 				B2D1AEA519646A0700BCF985 /* ADTSAudioFileSink.hh */,
 				9A87370F195A5B130072620E /* MyRTSPServer.cpp */,

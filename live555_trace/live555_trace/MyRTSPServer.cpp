@@ -30,6 +30,7 @@
 
 #include "liveMedia.hh"
 #include "BasicUsageEnvironment.hh"
+#include "ADTSBackChannelAudioFileServerMediaSubsession.hh"
 #include "arpa/inet.h"
 
 UsageEnvironment* env;
@@ -71,7 +72,7 @@ int myRTSPServer(){
         //char const* audioFileName = "/Users/liaokuohsun/Downloads/test.aac";
         char const* inputFileName = "/Users/miuki001/Downloads/slamtv10.264";
         char const* audioFileName = "/Users/miuki001/Downloads/test.aac";
-        
+        char const* outputFileName = "receive.aac";
         reuseFirstSource = True;
         
         
@@ -94,15 +95,23 @@ int myRTSPServer(){
         // Stream 3: backchannel AAC audio
         // TODO: modify here to support backchannel
         
+        // implement a new class named ADTSBackChannelAudioFileServerMediaSubsession
         // use RTPSource to receive data and use ADTSAudioFileSink to save data to file
-        // ADTSBackChannelAudioFileServerMediaSubsession
-        ADTSAudioFileServerMediaSubsession *sub3 =ADTSAudioFileServerMediaSubsession
-        ::createNew(*env, audioFileName, reuseFirstSource);
+
+        ADTSBackChannelAudioFileServerMediaSubsession *sub3 =ADTSBackChannelAudioFileServerMediaSubsession
+        ::createNew(*env, outputFileName, reuseFirstSource);
         
         sms->addSubsession(sub3);
         
         rtspServer->addServerMediaSession(sms);
         
+        // 20140703 albert.liao modified start
+        // we should notify OnDemandServerMediaSubsession or ServerMediaSubSession that we already create a backchannel subsession
+        // so that ServerMediaSubSession can do
+        // 1. create a SDP with backchannel
+        // 2. create a RTPSource to read data from RTPClient
+        // 3. create a FileSink to save received data to file
+        // 20140703 albert.liao modified end
         
         announceStream(rtspServer, sms, streamName, inputFileName);
     }
