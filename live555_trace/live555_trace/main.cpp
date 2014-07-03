@@ -7,8 +7,8 @@
 //
 
 #include <iostream>
-#include "MyRTSPClient.h"
-#include "MyRTSPServer.h"
+#include "MyRTSPClient.hh"
+#include "MyRTSPServer.hh"
 
 int main(int argc, const char * argv[])
 {

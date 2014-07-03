@@ -12,6 +12,7 @@
 		9A873711195A5B130072620E /* MyRTSPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A87370F195A5B130072620E /* MyRTSPServer.cpp */; };
 		B2D1AEA619646A0700BCF985 /* ADTSAudioFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2D1AEA419646A0700BCF985 /* ADTSAudioFileSink.cpp */; };
 		B2D1AEAB1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2D1AEA91964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */; };
+		B2E248AD19658AF1004A602A /* AudioUtility.c in Sources */ = {isa = PBXBuildFile; fileRef = B2E248AC19658AF1004A602A /* AudioUtility.c */; };
 		B2EB919D195881560058A962 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2EB919C195881560058A962 /* main.cpp */; };
 		B2EB92671958861B0058A962 /* libliveMedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EB92661958861B0058A962 /* libliveMedia.a */; };
 		B2EB92691958862C0058A962 /* libgroupsock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EB92681958862C0058A962 /* libgroupsock.a */; };
@@ -37,16 +38,18 @@
 		9A87370919597B0D0072620E /* ADTSAudioBufferSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSAudioBufferSource.cpp; sourceTree = "<group>"; };
 		9A87370A19597B0D0072620E /* ADTSAudioBufferSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ADTSAudioBufferSource.hh; sourceTree = "<group>"; };
 		9A87370C195A59850072620E /* MyRTSPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyRTSPClient.cpp; sourceTree = "<group>"; };
-		9A87370D195A59850072620E /* MyRTSPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRTSPClient.h; sourceTree = "<group>"; };
+		9A87370D195A59850072620E /* MyRTSPClient.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyRTSPClient.hh; sourceTree = "<group>"; };
 		9A87370F195A5B130072620E /* MyRTSPServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyRTSPServer.cpp; sourceTree = "<group>"; };
-		9A873710195A5B130072620E /* MyRTSPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRTSPServer.h; sourceTree = "<group>"; };
+		9A873710195A5B130072620E /* MyRTSPServer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyRTSPServer.hh; sourceTree = "<group>"; };
 		B2D1AEA1196462C400BCF985 /* slamtv10.264 */ = {isa = PBXFileReference; lastKnownFileType = file; name = slamtv10.264; path = live555_trace/slamtv10.264; sourceTree = "<group>"; };
 		B2D1AEA2196462C400BCF985 /* test.aac */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.aac; path = live555_trace/test.aac; sourceTree = "<group>"; };
 		B2D1AEA31964658C00BCF985 /* winamp-intro.aac */ = {isa = PBXFileReference; lastKnownFileType = file; name = "winamp-intro.aac"; path = "live555_trace/winamp-intro.aac"; sourceTree = "<group>"; };
 		B2D1AEA419646A0700BCF985 /* ADTSAudioFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSAudioFileSink.cpp; sourceTree = "<group>"; };
-		B2D1AEA519646A0700BCF985 /* ADTSAudioFileSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSAudioFileSink.h; sourceTree = "<group>"; };
+		B2D1AEA519646A0700BCF985 /* ADTSAudioFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ADTSAudioFileSink.hh; sourceTree = "<group>"; };
 		B2D1AEA91964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSBackChannelAudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
 		B2D1AEAA1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSBackChannelAudioFileServerMediaSubsession.h; sourceTree = "<group>"; };
+		B2E248AC19658AF1004A602A /* AudioUtility.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AudioUtility.c; sourceTree = "<group>"; };
+		B2E248B519658B6F004A602A /* AudioUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUtility.h; sourceTree = "<group>"; };
 		B2EB9199195881560058A962 /* live555_trace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = live555_trace; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2EB919C195881560058A962 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B2EB91CD195881910058A962 /* BasicUsageEnvironment.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BasicUsageEnvironment.xcodeproj; path = ../live/BasicUsageEnvironment/BasicUsageEnvironment.xcodeproj; sourceTree = "<group>"; };
@@ -103,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				9A87370C195A59850072620E /* MyRTSPClient.cpp */,
-				9A87370D195A59850072620E /* MyRTSPClient.h */,
+				9A87370D195A59850072620E /* MyRTSPClient.hh */,
 				9A87370919597B0D0072620E /* ADTSAudioBufferSource.cpp */,
 				9A87370A19597B0D0072620E /* ADTSAudioBufferSource.hh */,
 			);
@@ -116,9 +119,9 @@
 				B2D1AEA91964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */,
 				B2D1AEAA1964701000BCF985 /* ADTSBackChannelAudioFileServerMediaSubsession.h */,
 				B2D1AEA419646A0700BCF985 /* ADTSAudioFileSink.cpp */,
-				B2D1AEA519646A0700BCF985 /* ADTSAudioFileSink.h */,
+				B2D1AEA519646A0700BCF985 /* ADTSAudioFileSink.hh */,
 				9A87370F195A5B130072620E /* MyRTSPServer.cpp */,
-				9A873710195A5B130072620E /* MyRTSPServer.h */,
+				9A873710195A5B130072620E /* MyRTSPServer.hh */,
 			);
 			name = server;
 			sourceTree = "<group>";
@@ -155,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				B2EB919C195881560058A962 /* main.cpp */,
+				B2E248AC19658AF1004A602A /* AudioUtility.c */,
+				B2E248B519658B6F004A602A /* AudioUtility.h */,
 				B2D1AEA819646B1100BCF985 /* server */,
 				B2D1AEA719646B0200BCF985 /* client */,
 			);
@@ -279,6 +284,7 @@
 			files = (
 				9A87370E195A59850072620E /* MyRTSPClient.cpp in Sources */,
 				B2EB919D195881560058A962 /* main.cpp in Sources */,
+				B2E248AD19658AF1004A602A /* AudioUtility.c in Sources */,
 				9A87370B19597B0D0072620E /* ADTSAudioBufferSource.cpp in Sources */,
 				B2D1AEA619646A0700BCF985 /* ADTSAudioFileSink.cpp in Sources */,
 				9A873711195A5B130072620E /* MyRTSPServer.cpp in Sources */,

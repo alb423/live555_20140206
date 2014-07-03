@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 albert. All rights reserved.
 //
 
-#include "MyRTSPServer.h"
+#include "MyRTSPServer.hh"
 
 /**********
  This library is free software; you can redistribute it and/or modify it under

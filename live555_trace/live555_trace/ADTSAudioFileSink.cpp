@@ -7,11 +7,14 @@
 //
 
 // reference AMRAudioFileSink.cpp
-#include "ADTSAudioFileSink.h"
+#include "ADTSAudioFileSink.hh"
 #include "AMRAudioFileSink.hh"
 #include "AMRAudioSource.hh"
 #include "OutputFile.hh"
-
+extern "C"
+{
+    #include "AudioUtility.h"
+}
 ////////// ADTSAudioFileSink //////////
 
 ADTSAudioFileSink
@@ -55,10 +58,30 @@ Boolean ADTSAudioFileSink::sourceIsCompatibleWithUs(MediaSource& source) {
 void ADTSAudioFileSink::afterGettingFrame(unsigned frameSize,
                                          unsigned numTruncatedBytes,
                                          struct timeval presentationTime) {
-    //ADTSAudioSource* source = (ADTSAudioSource*)fSource;
+    AMRAudioSource* source = (AMRAudioSource*)fSource;
+    if (source == NULL) return; // sanity check
+    //printf("%s %s line=%d \n",__FILE__, __FUNCTION__ , __LINE__);
 
-    // write file here
-    
+    fHaveWrittenHeader = True;
+
+
+    tAACADTSHeaderInfo vxADTSHeader={0};
+    unsigned char pADTSHeader[10]={0};
+    unsigned char pInput[] = {0xff,0xf9,0x58,0x80,0,0x1f,0xfc};
+
+    // TODO: check here
+    parseAACADTSString(pInput,&vxADTSHeader);
+    vxADTSHeader.sampling_frequency_index = 11; //8000hz
+    vxADTSHeader.channel_configuration = 1;
+    vxADTSHeader.adts_buffer_fullness = 0x7ff;
+    vxADTSHeader.frame_length = 7+frameSize;
+    //printAACAHeader(&vxADTSHeader);
+
+    generateAACADTSString(pADTSHeader,&vxADTSHeader);
+    //printf("%s %s line=%d frameSize=%d\n",__FILE__, __FUNCTION__ , __LINE__, frameSize);
+    fwrite(pADTSHeader, 1, 7, fOutFid);
+
+    //addData(&frameHeader, 7, pADTSHeader);
     // Call the parent class to complete the normal file write with the input data:
-    FileSink::afterGettingFrame(frameSize, numTruncatedBytes, presentationTime);
+    ADTSAudioFileSink::afterGettingFrame(frameSize, numTruncatedBytes, presentationTime);
 }
