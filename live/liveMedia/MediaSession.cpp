@@ -803,7 +803,7 @@ Boolean MediaSubsession::initiate(int useSpecialRTPoffset) {
 // 20140624 albert.liao modified start
     if(fFlag == FLAG_RECVONLY)
     {
-      fprintf(stderr, "MediaSubsession::initiate()  FLAG_SENDONLY\n");
+      fprintf(stderr, "MediaSubsession::initiate()  FLAG_RECVONLY\n");
         
       // Create "fRTPSource" and "fReadSource":
       if (!createSourceObjects(useSpecialRTPoffset)) break;

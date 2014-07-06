@@ -585,7 +585,7 @@ RTPSink* MediaSubsession
     RTPSink *pTmp = MPEG4GenericRTPSink::createNew(fParent.envir(), rtpGroupsock,
                                                    rtpPayloadTypeIfDynamic,
                                                    adtsSource->samplingFrequency(),
-                                                   "audio", "AAC-hbr", adtsSource->configStr(),
+                                                   "audio", "aac-hbr", adtsSource->configStr(),
                                                    adtsSource->numChannels());
     return pTmp;
 }

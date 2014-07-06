@@ -44,6 +44,8 @@ static void announceStream(RTSPServer* rtspServer, ServerMediaSession* sms,
                            char const* streamName, char const* inputFileName); // fwd
 
 int myRTSPServer(){
+    
+    Boolean bFlag;
     // Begin by setting up our usage environment:
     TaskScheduler* scheduler = BasicTaskScheduler::createNew();
     env = BasicUsageEnvironment::createNew(*scheduler);
@@ -67,14 +69,22 @@ int myRTSPServer(){
     
     // A H.264 video elementary stream:
     {
-        char const* streamName = "h264ESVideoTest";
-        //char const* inputFileName = "/Users/liaokuohsun/Downloads/slamtv10.264";
-        //char const* audioFileName = "/Users/liaokuohsun/Downloads/test.aac";
-        char const* inputFileName = "/Users/miuki001/Downloads/slamtv10.264";
-        char const* audioFileName = "/Users/miuki001/Downloads/test.aac";
+        char const* streamName = "BackChannelTest";
+        char const* inputFileName = "/Users/liaokuohsun/Downloads/slamtv10.264";
+        char const* audioFileName = "/Users/liaokuohsun/Downloads/test.aac";
+        //char const* inputFileName = "/Users/miuki001/Downloads/slamtv10.264";
+        //char const* audioFileName = "/Users/miuki001/Downloads/test.aac";
         char const* outputFileName = "receive.aac";
         reuseFirstSource = True;
         
+        // check if test file is exist
+        {
+            FILE *fp=NULL;
+            fp = fopen(inputFileName,"r");
+            if(fp==NULL) printf("File %s is not exist\n", inputFileName); else fclose(fp);
+            fp = fopen(audioFileName,"r");
+            if(fp==NULL) printf("File %s is not exist\n", audioFileName); else fclose(fp);
+        }
         
         // Stream 1: H.264 video
         ServerMediaSession* sms
@@ -83,13 +93,16 @@ int myRTSPServer(){
         H264VideoFileServerMediaSubsession *sub =H264VideoFileServerMediaSubsession
             ::createNew(*env, inputFileName, reuseFirstSource);
         
-        sms->addSubsession(sub);
+        bFlag = sms->addSubsession(sub);
+        if(bFlag==False) printf("addSubsession for %s error\n", inputFileName);
+        
         
         // Stream 2: AAC audio stream (ADTS-format file):
         ADTSAudioFileServerMediaSubsession *sub2 =ADTSAudioFileServerMediaSubsession
             ::createNew(*env, audioFileName, reuseFirstSource);
             
-        sms->addSubsession(sub2);
+        bFlag = sms->addSubsession(sub2);
+        if(bFlag==False) printf("addSubsession for %s error\n", audioFileName);
 
         
         // Stream 3: backchannel AAC audio
@@ -101,8 +114,10 @@ int myRTSPServer(){
         ADTSBackChannelAudioFileServerMediaSubsession *sub3 =ADTSBackChannelAudioFileServerMediaSubsession
         ::createNew(*env, outputFileName, reuseFirstSource);
         
-        sms->addSubsession(sub3);
-        
+        sub3->setSubsessionAsBackChannel();
+        bFlag = sms->addSubsession(sub3);
+        if(bFlag==False) printf("addSubsession for %s error\n", outputFileName);
+
         rtspServer->addServerMediaSession(sms);
         
         // 20140703 albert.liao modified start

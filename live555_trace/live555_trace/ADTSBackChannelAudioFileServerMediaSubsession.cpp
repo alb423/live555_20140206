@@ -19,7 +19,8 @@ ADTSBackChannelAudioFileServerMediaSubsession::createNew(UsageEnvironment& env,
 
 ADTSBackChannelAudioFileServerMediaSubsession::ADTSBackChannelAudioFileServerMediaSubsession(UsageEnvironment& env,
                                                 char const* fileName, Boolean reuseFirstSource)
-: FileServerMediaSubsession(env, fileName, reuseFirstSource){
+: FileServerMediaSubsession(env, fileName, reuseFirstSource),
+fAuxSDPLine(NULL),fDoneFlag(0), fRTPTimestampFrequency(8000){
     
 }
 
@@ -29,55 +30,50 @@ ADTSBackChannelAudioFileServerMediaSubsession
 }
 
 
-FileSink* ADTSBackChannelAudioFileServerMediaSubsession::createNewSink(unsigned clientSessionId,
+FileSink* ADTSBackChannelAudioFileServerMediaSubsession::createNewStreamDestination(unsigned clientSessionId,
                                                                           unsigned& estBitrate)
 {
     estBitrate = 8; // kbps, estimate
     
-    //return ADTSAudioFileSource::createNew(envir(), fFileName);
-    //Johnson_DBG
-    printf("%s %s %d \n",__FILE__, __FUNCTION__ , __LINE__);
+    //printf("ADTSBackChannelAudioFileServerMediaSubsession %s %d \n", __FUNCTION__ , __LINE__);
     return ADTSAudioFileSink::createNew(envir(), fFileName,  1024, 0);
 }
 
 
-
-
-// mimic
-// function Boolean MediaSubsession::createSourceObjects(int useSpecialRTPoffset) in MediaSession.cpp
-Boolean ADTSBackChannelAudioFileServerMediaSubsession::createSourceObjects(int useSpecialRTPoffset) {
-
-//            if (strcmp(fCodecName, "MPEG4-GENERIC") == 0)
-//            {
-//                fReadSource = fRTPSource
-//                = MPEG4GenericRTPSource::createNew(envir(), fRTPSocket,
-//                                               fRTPPayloadFormat,
-//                                               fRTPTimestampFrequency,
-//                                               fMediumName,
-//                                               attrVal_str("mode"),
-//                                               attrVal_unsigned("sizelength"),
-//                                               attrVal_unsigned("indexlength"),
-//                                               attrVal_unsigned("indexdeltalength"));
-//            }
-    
-    //a=fmtp: 96 ;profile-level-id=15;mode=AAC-hbr;config=1588;sizeLength=13;indexLength=3;indexDeltaLength=3;profile=1;bitrate=12000
-    fReadSource = fRTPSource
-    = MPEG4GenericRTPSource::createNew(envir(), fRTPSocket,
-                                            fRTPPayloadFormat,
-                                            fRTPTimestampFrequency,
-                                            "audio",
-                                            "AAC-hbr",
-                                            13,
-                                            3,
-                                            3
-                                            );
-
-    if(fReadSource)
-        return True;
-    else
-        return False; // an error occurred
+// "estBitrate" is the stream's estimated bitrate, in kbps
+RTPSource* ADTSBackChannelAudioFileServerMediaSubsession::createNewRTPSource(Groupsock* rtpGroupsock,
+                                                                             unsigned char rtpPayloadTypeIfDynamic,
+                                                                             FileSink* outputSink)
+{
+    //printf("ADTSBackChannelAudioFileServerMediaSubsession::createNewRTPSource %d rtpPayloadTypeIfDynamic:%d\n",__LINE__ ,rtpPayloadTypeIfDynamic);
+    //a=fmtp: %d ;profile-level-id=15;mode=AAC-hbr;config=1588;sizeLength=13;indexLength=3;indexDeltaLength=3;profile=1;bitrate=12000
+    fRTPPayloadFormat = rtpPayloadTypeIfDynamic;
+    fReadSource =
+        MPEG4GenericRTPSource::createNew(envir(), rtpGroupsock,
+                                       rtpPayloadTypeIfDynamic,
+                                       fRTPTimestampFrequency,
+                                       "audio",
+                                       "aac-hbr",
+                                       13,
+                                       3,
+                                       3
+                                       );
+    return fReadSource;
 }
 
+char const* ADTSBackChannelAudioFileServerMediaSubsession::getAuxSDPLineForBackChannel(FileSink* mediaSink, RTPSource* rtpSource)
+{
+    if(fAuxSDPLine != NULL)  return fAuxSDPLine;
+    
+    // TODO: generate fAuxSDPLine
+    char pTmpStr[100] = {0};
+    sprintf(pTmpStr, "a=fmtp:%d streamtype=5;\r\n", fRTPPayloadFormat);
+    fAuxSDPLine = strDup(pTmpStr);
+    
+    //printf("ADTSBackChannelAudioFileServerMediaSubsession::getAuxSDPLine() line:%d, pTmpStr=%s\n", __LINE__, pTmpStr);
+    //envir().taskScheduler().doEventLoop(&fDoneFlag);
+    return fAuxSDPLine;
+}
 
 // implment virtual function defined in OnDemandServerMediaSubsession.hh
 // new virtual functions, defined by all subclasses
@@ -90,6 +86,7 @@ RTPSink* ADTSBackChannelAudioFileServerMediaSubsession::createNewRTPSink(Groupso
                                   unsigned char rtpPayloadTypeIfDynamic,
                                   FramedSource* inputSource)
 { return NULL;}
+
 
 
 

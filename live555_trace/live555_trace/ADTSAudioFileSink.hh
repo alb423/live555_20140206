@@ -27,11 +27,20 @@ protected:
     virtual ~ADTSAudioFileSink();
     
 protected: // redefined virtual functions:
+
     virtual Boolean sourceIsCompatibleWithUs(MediaSource& source);
     virtual void afterGettingFrame(unsigned frameSize,
                                    unsigned numTruncatedBytes,
                                    struct timeval presentationTime);
-    
+    static void afterGettingFrame(void* clientData, unsigned frameSize,
+                                  unsigned numTruncatedBytes,
+                                  struct timeval presentationTime,
+                                  unsigned durationInMicroseconds);
+                                  
+private:
+    // redefined virtual functions:
+    virtual Boolean continuePlaying();
+                                      
 protected:
     Boolean fHaveWrittenHeader;
 };

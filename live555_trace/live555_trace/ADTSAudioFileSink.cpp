@@ -49,8 +49,30 @@ ADTSAudioFileSink::createNew(UsageEnvironment& env, char const* fileName,
 }
 
 Boolean ADTSAudioFileSink::sourceIsCompatibleWithUs(MediaSource& source) {
-    // The input source must be a AMR Audio source:
-    return source.isAMRAudioSource();
+    // The input source must be a MPEG4GenericRTPSource
+    return source.isRTPSource();
+}
+
+Boolean ADTSAudioFileSink::continuePlaying() {
+    //printf("ADTSAudioFileSink::continuePlaying() line=%d fBufferSize=%d\n\n\n", __LINE__, fBufferSize);
+    if (fSource == NULL) return False;
+    
+    fSource->getNextFrame(fBuffer, fBufferSize,
+                          afterGettingFrame, this,
+                          onSourceClosure, this);
+    
+    return True;
+}
+
+
+void ADTSAudioFileSink::afterGettingFrame(void* clientData, unsigned frameSize,
+                              unsigned numTruncatedBytes,
+                              struct timeval presentationTime,
+                              unsigned durationInMicroseconds)
+{
+    //printf("ADTSAudioFileSink::afterGettingFrame line=%d \n", __LINE__);
+    ADTSAudioFileSink* sink = (ADTSAudioFileSink*)clientData;
+    sink->afterGettingFrame(frameSize, numTruncatedBytes, presentationTime);
 }
 
 void ADTSAudioFileSink::afterGettingFrame(unsigned frameSize,
@@ -58,10 +80,9 @@ void ADTSAudioFileSink::afterGettingFrame(unsigned frameSize,
                                          struct timeval presentationTime) {
     //AMRAudioSource* source = (AMRAudioSource*)fSource;
     //if (source == NULL) return; // sanity check
-    //printf("%s %s line=%d \n",__FILE__, __FUNCTION__ , __LINE__);
+    //printf("ADTSAudioFileSink::afterGettingFrame line=%d \n", __LINE__);
 
     fHaveWrittenHeader = True;
-
 
     tAACADTSHeaderInfo vxADTSHeader={0};
     unsigned char pADTSHeader[10]={0};
@@ -79,5 +100,6 @@ void ADTSAudioFileSink::afterGettingFrame(unsigned frameSize,
     fwrite(pADTSHeader, 1, 7, fOutFid);
 ;
     // Call the parent class to complete the normal file write with the input data:
-    ADTSAudioFileSink::afterGettingFrame(frameSize, numTruncatedBytes, presentationTime);
+    FileSink::afterGettingFrame(frameSize, numTruncatedBytes, presentationTime);
+    
 }

@@ -12,3 +12,15 @@ live/mediaServer/live555MediaServer
 *.xcbkptlist
 
 *.xcbkptlist
+
+*.a
+
+*.a
+
+live/groupsock/libgroupsock.a
+
+live/BasicUsageEnvironment/libBasicUsageEnvironment.a
+
+live/liveMedia/libliveMedia.a
+
+live/UsageEnvironment/libUsageEnvironment.a
