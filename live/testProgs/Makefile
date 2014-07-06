@@ -1,11 +1,12 @@
-INCLUDES = -I../UsageEnvironment/include -I../groupsock/include -I../liveMedia/include -I../BasicUsageEnvironment/include
+INCLUDES = -I../UsageEnvironment/include -I../groupsock/include -I../liveMedia/include -I../BasicUsageEnvironment/include -I../BackChannel/include
 # Default library filename suffixes for each library that we link with.  The "config.*" file might redefine these later.
 libliveMedia_LIB_SUFFIX = $(LIB_SUFFIX)
 libBasicUsageEnvironment_LIB_SUFFIX = $(LIB_SUFFIX)
 libUsageEnvironment_LIB_SUFFIX = $(LIB_SUFFIX)
 libgroupsock_LIB_SUFFIX = $(LIB_SUFFIX)
+libbackChannel_LIB_SUFFIX = $(LIB_SUFFIX)
 ##### Change the following for your environment:
-COMPILE_OPTS =		$(INCLUDES) -I. $(EXTRA_LDFLAGS) -DBSD=1 -O -DSOCKLEN_T=socklen_t -DHAVE_SOCKADDR_LEN=1 -DTIME_BASE=int
+COMPILE_OPTS =		$(INCLUDES) -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include $(EXTRA_LDFLAGS) -DBSD=1 -O -DSOCKLEN_T=socklen_t -DHAVE_SOCKADDR_LEN=1 -DTIME_BASE=int
 C =			c
 C_COMPILER =		cc
 C_FLAGS =		$(COMPILE_OPTS)
@@ -31,14 +32,14 @@ MULTICAST_APPS = $(MULTICAST_STREAMER_APPS) $(MULTICAST_RECEIVER_APPS) $(MULTICA
 
 UNICAST_STREAMER_APPS = testOnDemandRTSPServer$(EXE)
 #UNICAST_RECEIVER_APPS = testRTSPClient$(EXE) openRTSP$(EXE) playSIP$(EXE)
-UNICAST_RECEIVER_APPS = testRTSPClient$(EXE) openRTSP$(EXE)
+UNICAST_RECEIVER_APPS = testRTSPClient$(EXE) openRTSP$(EXE) 
 UNICAST_APPS = $(UNICAST_STREAMER_APPS) $(UNICAST_RECEIVER_APPS)
 
 MISC_APPS = testMPEG1or2Splitter$(EXE) testMPEG1or2ProgramToTransportStream$(EXE) testH264VideoToTransportStream$(EXE) testH265VideoToTransportStream$(EXE) MPEG2TransportStreamIndexer$(EXE) testMPEG2TransportStreamTrickPlay$(EXE) registerRTSPStream$(EXE)
 
 PREFIX = /usr/local
 #ALL = $(MULTICAST_APPS) $(UNICAST_APPS) $(MISC_APPS)
-ALL = $(UNICAST_APPS)
+ALL = $(UNICAST_APPS) 
 all: $(ALL)
 
 extra:	testGSMStreamer$(EXE)
@@ -93,8 +94,10 @@ LIVEMEDIA_DIR = ../liveMedia
 LIVEMEDIA_LIB = $(LIVEMEDIA_DIR)/libliveMedia.$(libliveMedia_LIB_SUFFIX)
 GROUPSOCK_DIR = ../groupsock
 GROUPSOCK_LIB = $(GROUPSOCK_DIR)/libgroupsock.$(libgroupsock_LIB_SUFFIX)
+BACKCHANNEL_DIR = ../BackChannel
+BACKCHANNEL_LIB = $(BACKCHANNEL_DIR)/libbackChannel.$(libbackChannel_LIB_SUFFIX)
 LOCAL_LIBS =	$(LIVEMEDIA_LIB) $(GROUPSOCK_LIB) \
-		$(BASIC_USAGE_ENVIRONMENT_LIB) $(USAGE_ENVIRONMENT_LIB)
+		$(BASIC_USAGE_ENVIRONMENT_LIB) $(USAGE_ENVIRONMENT_LIB) $(BACKCHANNEL_LIB)
 LIBS =			$(LOCAL_LIBS) $(LIBS_FOR_CONSOLE_APPLICATION)
 
 testMP3Streamer$(EXE):	$(MP3_STREAMER_OBJS) $(LOCAL_LIBS)

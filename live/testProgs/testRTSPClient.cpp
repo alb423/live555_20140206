@@ -529,22 +529,22 @@ void DummySink::afterGettingFrame(void* clientData, unsigned frameSize, unsigned
 void DummySink::afterGettingFrame(unsigned frameSize, unsigned numTruncatedBytes,
                                   struct timeval presentationTime, unsigned /*durationInMicroseconds*/) {
     
-//    // We've just received a frame of data.  (Optionally) print out information about it:
-//#ifdef DEBUG_PRINT_EACH_RECEIVED_FRAME
-//    if (fStreamId != NULL) envir() << "Stream \"" << fStreamId << "\"; ";
-//    envir() << fSubsession.mediumName() << "/" << fSubsession.codecName() << ":\tReceived " << frameSize << " bytes";
-//    if (numTruncatedBytes > 0) envir() << " (with " << numTruncatedBytes << " bytes truncated)";
-//    char uSecsStr[6+1]; // used to output the 'microseconds' part of the presentation time
-//    sprintf(uSecsStr, "%06u", (unsigned)presentationTime.tv_usec);
-//    envir() << ".\tPresentation time: " << (int)presentationTime.tv_sec << "." << uSecsStr;
-//    if (fSubsession.rtpSource() != NULL && !fSubsession.rtpSource()->hasBeenSynchronizedUsingRTCP()) {
-//        envir() << "!"; // mark the debugging output to indicate that this presentation time is not RTCP-synchronized
-//    }
-//#ifdef DEBUG_PRINT_NPT
-//    envir() << "\tNPT: " << fSubsession.getNormalPlayTime(presentationTime);
-//#endif
-//    envir() << "\n";
-//#endif
+    // We've just received a frame of data.  (Optionally) print out information about it:
+#ifdef DEBUG_PRINT_EACH_RECEIVED_FRAME
+    if (fStreamId != NULL) envir() << "Stream \"" << fStreamId << "\"; ";
+    envir() << fSubsession.mediumName() << "/" << fSubsession.codecName() << ":\tReceived " << frameSize << " bytes";
+    if (numTruncatedBytes > 0) envir() << " (with " << numTruncatedBytes << " bytes truncated)";
+    char uSecsStr[6+1]; // used to output the 'microseconds' part of the presentation time
+    sprintf(uSecsStr, "%06u", (unsigned)presentationTime.tv_usec);
+    envir() << ".\tPresentation time: " << (int)presentationTime.tv_sec << "." << uSecsStr;
+    if (fSubsession.rtpSource() != NULL && !fSubsession.rtpSource()->hasBeenSynchronizedUsingRTCP()) {
+        envir() << "!"; // mark the debugging output to indicate that this presentation time is not RTCP-synchronized
+    }
+#ifdef DEBUG_PRINT_NPT
+    envir() << "\tNPT: " << fSubsession.getNormalPlayTime(presentationTime);
+#endif
+    envir() << "\n";
+#endif
     
     // Then continue, to request the next frame of data:
     continuePlaying();
@@ -563,7 +563,7 @@ Boolean DummySink::continuePlaying() {
 
 // 20140624 albert.liao modified start
 #pragma mark - Below is test for backchannel
-//#include "ADTSAudioBufferSource.hh"
+#include "ADTSAudioBufferSource.hh"
 //#define TEST_WITH_NEW_CLASS_AUDIO_BUFFER_SOURCE 1
 
 #pragma mark - MediaSubsession virtual function
@@ -576,30 +576,10 @@ FramedSource* MediaSubsession
     FramedSource *pTmp = ADTSAudioBufferSource::createNew(fParent.envir(), 1, 11 /*8000*/, 1);
     //ADTSAudioBufferSource* createNew(UsageEnvironment& env, unsigned int vProfile, unsigned int vSmaplingFrequenceIndex, unsigned int vChannels);
 #else
-
-    // The test file can be get from http://www.live555.com/liveMedia/public/aac/
-    // "/Users/liaokuohsun/Downloads/1024.aac"
-    // "/Users/liaokuohsun/Work/AudioTestSample/test.aac"
-    // "1024.aac"
-    char pBackChannelFile[] = "/Users/liaokuohsun/Downloads/1024.aac";
-     // check if test file is exist
-     {
-         FILE *fp=NULL;
-         fp = fopen(pBackChannelFile,"r");
-         if(fp==NULL) 
-         {
-            printf("File %s is not exist\n", pBackChannelFile); 
-            exit(0);
-         }
-         else 
-         {
-            fclose(fp);
-         }
-         
-     }    
-    FramedSource *pTmp = ADTSAudioFileSource::createNew(fParent.envir(), pBackChannelFile);
+    // The test file is get from http://www.live555.com/liveMedia/public/aac/
+    //FramedSource *pTmp = ADTSAudioFileSource::createNew(fParent.envir(), "/Users/liaokuohsun/Work/AudioTestSample/test.aac");
+    FramedSource *pTmp = ADTSAudioFileSource::createNew(fParent.envir(), "/Users/liaokuohsun/Downloads/1024.aac");
 #endif
-    
     return pTmp;
 }
 
@@ -636,7 +616,7 @@ Boolean MediaSubsession::createSinkObjects(int useSpecialRTPoffset)
             break;
         }
         
-        fRTPSink = createNewRTPSink(fRTPSocket, 96, fReadSource);
+        fRTPSink = createNewRTPSink(fRTPSocket, fRTPPayloadFormat, fReadSource);
         
         if(!fRTPSink)
         {

@@ -54,7 +54,7 @@ Boolean ADTSAudioFileSink::sourceIsCompatibleWithUs(MediaSource& source) {
 }
 
 Boolean ADTSAudioFileSink::continuePlaying() {
-    //printf("ADTSAudioFileSink::continuePlaying() line=%d fBufferSize=%d\n\n\n", __LINE__, fBufferSize);
+    printf("ADTSAudioFileSink::continuePlaying() line=%d fBufferSize=%d\n\n\n", __LINE__, fBufferSize);
     if (fSource == NULL) return False;
     
     fSource->getNextFrame(fBuffer, fBufferSize,
@@ -70,7 +70,7 @@ void ADTSAudioFileSink::afterGettingFrame(void* clientData, unsigned frameSize,
                               struct timeval presentationTime,
                               unsigned durationInMicroseconds)
 {
-    //printf("ADTSAudioFileSink::afterGettingFrame line=%d \n", __LINE__);
+    printf("ADTSAudioFileSink::afterGettingFrame line=%d \n", __LINE__);
     ADTSAudioFileSink* sink = (ADTSAudioFileSink*)clientData;
     sink->afterGettingFrame(frameSize, numTruncatedBytes, presentationTime);
 }
@@ -80,7 +80,7 @@ void ADTSAudioFileSink::afterGettingFrame(unsigned frameSize,
                                          struct timeval presentationTime) {
     //AMRAudioSource* source = (AMRAudioSource*)fSource;
     //if (source == NULL) return; // sanity check
-    //printf("ADTSAudioFileSink::afterGettingFrame line=%d \n", __LINE__);
+    printf("ADTSAudioFileSink::afterGettingFrame line=%d frameSize=%d\n", __LINE__, frameSize);
 
     fHaveWrittenHeader = True;
 

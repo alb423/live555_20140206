@@ -83,7 +83,7 @@ int parseAACADTSString(uint8_t * pInput, tAACADTSHeaderInfo* pADTSHeader)
 
 int generateAACADTSString(uint8_t* pBufOut, tAACADTSHeaderInfo* pADTSHeader)
 {
-    u_int8_t pOutput[10]={0};
+    uint8_t pOutput[10]={0};
     if((pADTSHeader==NULL)||(pBufOut==NULL))
     {
         printf("generateAACADTSString error");

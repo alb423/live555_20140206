@@ -24,3 +24,13 @@ live/BasicUsageEnvironment/libBasicUsageEnvironment.a
 live/liveMedia/libliveMedia.a
 
 live/UsageEnvironment/libUsageEnvironment.a
+
+live/testProgs/receive.aac
+
+live/testProgs/testMP3Streamer
+
+live/testProgs/testMPEG1or2VideoStreamer
+
+live/testProgs/testMPEG1or2AudioVideoStreamer
+
+live/testProgs/testMPEG2TransportStreamer

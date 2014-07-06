@@ -45,7 +45,7 @@ RTPSource* ADTSBackChannelAudioFileServerMediaSubsession::createNewRTPSource(Gro
                                                                              unsigned char rtpPayloadTypeIfDynamic,
                                                                              FileSink* outputSink)
 {
-    //printf("ADTSBackChannelAudioFileServerMediaSubsession::createNewRTPSource %d rtpPayloadTypeIfDynamic:%d\n",__LINE__ ,rtpPayloadTypeIfDynamic);
+    printf("ADTSBackChannelAudioFileServerMediaSubsession::createNewRTPSource %d rtpPayloadTypeIfDynamic:%d\n",__LINE__ ,rtpPayloadTypeIfDynamic);
     //a=fmtp: %d ;profile-level-id=15;mode=AAC-hbr;config=1588;sizeLength=13;indexLength=3;indexDeltaLength=3;profile=1;bitrate=12000
     fRTPPayloadFormat = rtpPayloadTypeIfDynamic;
     fReadSource =
@@ -70,7 +70,7 @@ char const* ADTSBackChannelAudioFileServerMediaSubsession::getAuxSDPLineForBackC
     sprintf(pTmpStr, "a=fmtp:%d streamtype=5;\r\n", fRTPPayloadFormat);
     fAuxSDPLine = strDup(pTmpStr);
     
-    //printf("ADTSBackChannelAudioFileServerMediaSubsession::getAuxSDPLine() line:%d, pTmpStr=%s\n", __LINE__, pTmpStr);
+    printf("ADTSBackChannelAudioFileServerMediaSubsession::getAuxSDPLine() line:%d, pTmpStr=%s\n", __LINE__, pTmpStr);
     //envir().taskScheduler().doEventLoop(&fDoneFlag);
     return fAuxSDPLine;
 }

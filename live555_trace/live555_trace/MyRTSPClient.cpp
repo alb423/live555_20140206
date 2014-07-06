@@ -604,7 +604,7 @@ Boolean MediaSubsession::createSinkObjects(int useSpecialRTPoffset)
             break;
         }
         
-        fRTPSink = createNewRTPSink(fRTPSocket, 96, fReadSource);
+        fRTPSink = createNewRTPSink(fRTPSocket, fRTPPayloadFormat, fReadSource);
         
         if(!fRTPSink)
         {

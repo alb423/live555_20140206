@@ -40,13 +40,13 @@
 		9A87370F195A5B130072620E /* MyRTSPServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyRTSPServer.cpp; sourceTree = "<group>"; };
 		9A873710195A5B130072620E /* MyRTSPServer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyRTSPServer.hh; sourceTree = "<group>"; };
 		9AD915D61969041D00ED6E2F /* ADTSAudioBufferSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADTSAudioBufferSource.cpp; path = ../../live/BackChannel/ADTSAudioBufferSource.cpp; sourceTree = "<group>"; };
-		9AD915D71969041D00ED6E2F /* ADTSAudioBufferSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSAudioBufferSource.hh; path = ../../live/BackChannel/ADTSAudioBufferSource.hh; sourceTree = "<group>"; };
 		9AD915D81969041D00ED6E2F /* ADTSAudioFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADTSAudioFileSink.cpp; path = ../../live/BackChannel/ADTSAudioFileSink.cpp; sourceTree = "<group>"; };
-		9AD915D91969041D00ED6E2F /* ADTSAudioFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSAudioFileSink.hh; path = ../../live/BackChannel/ADTSAudioFileSink.hh; sourceTree = "<group>"; };
 		9AD915DC1969041D00ED6E2F /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADTSBackChannelAudioFileServerMediaSubsession.cpp; path = ../../live/BackChannel/ADTSBackChannelAudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
-		9AD915DD1969041D00ED6E2F /* ADTSBackChannelAudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSBackChannelAudioFileServerMediaSubsession.hh; path = ../../live/BackChannel/ADTSBackChannelAudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
 		9AD915DE1969041D00ED6E2F /* AudioUtility.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = AudioUtility.c; path = ../../live/BackChannel/AudioUtility.c; sourceTree = "<group>"; };
-		9AD915DF1969041D00ED6E2F /* AudioUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioUtility.h; path = ../../live/BackChannel/AudioUtility.h; sourceTree = "<group>"; };
+		9AD915E51969112000ED6E2F /* AudioUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioUtility.h; path = ../../live/BackChannel/include/AudioUtility.h; sourceTree = "<group>"; };
+		9AD915E61969112D00ED6E2F /* ADTSAudioFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSAudioFileSink.hh; path = ../../live/BackChannel/include/ADTSAudioFileSink.hh; sourceTree = "<group>"; };
+		9AD915E71969113A00ED6E2F /* ADTSBackChannelAudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSBackChannelAudioFileServerMediaSubsession.hh; path = ../../live/BackChannel/include/ADTSBackChannelAudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		9AD915E81969114600ED6E2F /* ADTSAudioBufferSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ADTSAudioBufferSource.hh; path = ../../live/BackChannel/include/ADTSAudioBufferSource.hh; sourceTree = "<group>"; };
 		B2D1AEA1196462C400BCF985 /* slamtv10.264 */ = {isa = PBXFileReference; lastKnownFileType = file; name = slamtv10.264; path = live555_trace/slamtv10.264; sourceTree = "<group>"; };
 		B2D1AEA2196462C400BCF985 /* test.aac */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.aac; path = live555_trace/test.aac; sourceTree = "<group>"; };
 		B2D1AEA31964658C00BCF985 /* winamp-intro.aac */ = {isa = PBXFileReference; lastKnownFileType = file; name = "winamp-intro.aac"; path = "live555_trace/winamp-intro.aac"; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				9AD915D61969041D00ED6E2F /* ADTSAudioBufferSource.cpp */,
-				9AD915D71969041D00ED6E2F /* ADTSAudioBufferSource.hh */,
+				9AD915E81969114600ED6E2F /* ADTSAudioBufferSource.hh */,
 				9A87370C195A59850072620E /* MyRTSPClient.cpp */,
 				9A87370D195A59850072620E /* MyRTSPClient.hh */,
 			);
@@ -117,9 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				9AD915D81969041D00ED6E2F /* ADTSAudioFileSink.cpp */,
-				9AD915D91969041D00ED6E2F /* ADTSAudioFileSink.hh */,
+				9AD915E61969112D00ED6E2F /* ADTSAudioFileSink.hh */,
 				9AD915DC1969041D00ED6E2F /* ADTSBackChannelAudioFileServerMediaSubsession.cpp */,
-				9AD915DD1969041D00ED6E2F /* ADTSBackChannelAudioFileServerMediaSubsession.hh */,
+				9AD915E71969113A00ED6E2F /* ADTSBackChannelAudioFileServerMediaSubsession.hh */,
 				9A87370F195A5B130072620E /* MyRTSPServer.cpp */,
 				9A873710195A5B130072620E /* MyRTSPServer.hh */,
 			);
@@ -158,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				9AD915DE1969041D00ED6E2F /* AudioUtility.c */,
-				9AD915DF1969041D00ED6E2F /* AudioUtility.h */,
+				9AD915E51969112000ED6E2F /* AudioUtility.h */,
 				B2EB919C195881560058A962 /* main.cpp */,
 				B2D1AEA819646B1100BCF985 /* server */,
 				B2D1AEA719646B0200BCF985 /* client */,

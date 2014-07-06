@@ -830,11 +830,6 @@ void StreamState
        // get RTCP-synchronized presentation times immediately:
        fRTCPInstance->sendReport();
      }
-   
-      //remove me
-      printf("%s %s %d \n",__FILE__, __FUNCTION__ , __LINE__);
-      printf("fRTPSource=%d fUDPSource=%d\n\n", fRTPSource, fUDPSource);
-      
              
      if (!fAreCurrentlyPlaying && fFileSink != NULL) {
        if (fRTPSource != NULL) {

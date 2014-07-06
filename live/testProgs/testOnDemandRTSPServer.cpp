@@ -1,18 +1,18 @@
 /**********
-This library is free software; you can redistribute it and/or modify it under
-the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation; either version 2.1 of the License, or (at your
-option) any later version. (See <http://www.gnu.org/copyleft/lesser.html>.)
-
-This library is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
-more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with this library; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
-**********/
+ This library is free software; you can redistribute it and/or modify it under
+ the terms of the GNU Lesser General Public License as published by the
+ Free Software Foundation; either version 2.1 of the License, or (at your
+ option) any later version. (See <http://www.gnu.org/copyleft/lesser.html>.)
+ 
+ This library is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+ more details.
+ 
+ You should have received a copy of the GNU Lesser General Public License
+ along with this library; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ **********/
 // Copyright (c) 1996-2014, Live Networks, Inc.  All rights reserved
 // A test program that demonstrates how to stream - via unicast RTP
 // - various kinds of file on demand, using a built-in RTSP server.
@@ -20,6 +20,8 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 
 #include "liveMedia.hh"
 #include "BasicUsageEnvironment.hh"
+#include "ADTSBackChannelAudioFileServerMediaSubsession.hh"
+#include "arpa/inet.h"
 
 UsageEnvironment* env;
 
@@ -28,15 +30,18 @@ UsageEnvironment* env;
 // start for each client), change the following "False" to "True":
 Boolean reuseFirstSource = False;
 
-// To stream *only* MPEG-1 or 2 video "I" frames
-// (e.g., to reduce network bandwidth),
-// change the following "False" to "True":
-Boolean iFramesOnly = False;
-
 static void announceStream(RTSPServer* rtspServer, ServerMediaSession* sms,
-			   char const* streamName, char const* inputFileName); // fwd
+                           char const* streamName, char const* inputFileName); // fwd
+int myRTSPServer();
 
 int main(int argc, char** argv) {
+    myRTSPServer();
+}
+
+int myRTSPServer(){
+    
+    Boolean bFlag;
+    // Begin by setting up our usage environment:
     TaskScheduler* scheduler = BasicTaskScheduler::createNew();
     env = BasicUsageEnvironment::createNew(*scheduler);
     
@@ -59,27 +64,64 @@ int main(int argc, char** argv) {
     
     // A H.264 video elementary stream:
     {
-        char const* streamName = "h264ESVideoTest";
+        char const* streamName = "BackChannelTest";
         char const* inputFileName = "/Users/liaokuohsun/Downloads/slamtv10.264";
         char const* audioFileName = "/Users/liaokuohsun/Downloads/test.aac";
-        
+        //char const* inputFileName = "/Users/miuki001/Downloads/slamtv10.264";
+        //char const* audioFileName = "/Users/miuki001/Downloads/test.aac";
+        char const* outputFileName = "receive.aac";
         reuseFirstSource = True;
         
+        // check if test file is exist
+        {
+            FILE *fp=NULL;
+            fp = fopen(inputFileName,"r");
+            if(fp==NULL) printf("File %s is not exist\n", inputFileName); else fclose(fp);
+            fp = fopen(audioFileName,"r");
+            if(fp==NULL) printf("File %s is not exist\n", audioFileName); else fclose(fp);
+        }
+        
+        // Stream 1: H.264 video
         ServerMediaSession* sms
         = ServerMediaSession::createNew(*env, streamName, streamName,
                                         descriptionString);
         H264VideoFileServerMediaSubsession *sub =H264VideoFileServerMediaSubsession
         ::createNew(*env, inputFileName, reuseFirstSource);
         
-        sms->addSubsession(sub);
+        bFlag = sms->addSubsession(sub);
+        if(bFlag==False) printf("addSubsession for %s error\n", inputFileName);
         
-        // An AAC audio stream (ADTS-format file):
+        
+        // Stream 2: AAC audio stream (ADTS-format file):
         ADTSAudioFileServerMediaSubsession *sub2 =ADTSAudioFileServerMediaSubsession
         ::createNew(*env, audioFileName, reuseFirstSource);
         
-        sms->addSubsession(sub2);
+        bFlag = sms->addSubsession(sub2);
+        if(bFlag==False) printf("addSubsession for %s error\n", audioFileName);
+        
+        
+        // Stream 3: backchannel AAC audio
+        // TODO: modify here to support backchannel
+        
+        // implement a new class named ADTSBackChannelAudioFileServerMediaSubsession
+        // use RTPSource to receive data and use ADTSAudioFileSink to save data to file
+        
+        ADTSBackChannelAudioFileServerMediaSubsession *sub3 =ADTSBackChannelAudioFileServerMediaSubsession
+        ::createNew(*env, outputFileName, reuseFirstSource);
+        
+        sub3->setSubsessionAsBackChannel();
+        bFlag = sms->addSubsession(sub3);
+        if(bFlag==False) printf("addSubsession for %s error\n", outputFileName);
         
         rtspServer->addServerMediaSession(sms);
+        
+        // 20140703 albert.liao modified start
+        // we should notify OnDemandServerMediaSubsession or ServerMediaSubSession that we already create a backchannel subsession
+        // so that ServerMediaSubSession can do
+        // 1. create a SDP with backchannel
+        // 2. create a RTPSource to read data from RTPClient
+        // 3. create a FileSink to save received data to file
+        // 20140703 albert.liao modified end
         
         announceStream(rtspServer, sms, streamName, inputFileName);
     }
@@ -100,35 +142,19 @@ int main(int argc, char** argv) {
 }
 
 static void announceStream(RTSPServer* rtspServer, ServerMediaSession* sms,
-			   char const* streamName, char const* inputFileName) {
-  char* url = rtspServer->rtspURL(sms);
-  UsageEnvironment& env = rtspServer->envir();
-  env << "\n\"" << streamName << "\" stream, from the file \""
-      << inputFileName << "\"\n";
-  env << "Play this stream using the URL \"" << url << "\"\n";
-  delete[] url;
+                           char const* streamName, char const* inputFileName) {
+    char* url = rtspServer->rtspURL(sms);
+    UsageEnvironment& env = rtspServer->envir();
+    env << "\n\"" << streamName << "\" stream, from the file \""
+    << inputFileName << "\"\n";
+    env << "Play this stream using the URL \"" << url << "\"\n";
+    delete[] url;
 }
 
-// 20140703 albert.liao modified start
-#pragma mark - Below is test for backchannel
-//#include "ADTSAudioBufferSource.hh"
-//#define TEST_WITH_NEW_CLASS_AUDIO_BUFFER_SOURCE 1
-
-#pragma mark - MediaSubsession virtual function
-
+// 20140706 albert.liao modified start
 FramedSource* MediaSubsession
 ::createNewStreamSource(unsigned /*clientSessionId*/, unsigned& estBitrate) {
-    estBitrate = 96; //96; // kbps, estimate
-    
-#ifdef TEST_WITH_NEW_CLASS_AUDIO_BUFFER_SOURCE
-    FramedSource *pTmp = ADTSAudioBufferSource::createNew(fParent.envir(), 1, 11 /*8000*/, 1);
-    //ADTSAudioBufferSource* createNew(UsageEnvironment& env, unsigned int vProfile, unsigned int vSmaplingFrequenceIndex, unsigned int vChannels);
-#else
-    // The test file is get from http://www.live555.com/liveMedia/public/aac/
-    //FramedSource *pTmp = ADTSAudioFileSource::createNew(fParent.envir(), "/Users/liaokuohsun/Work/AudioTestSample/test.aac");
-    FramedSource *pTmp = ADTSAudioFileSource::createNew(fParent.envir(), "/Users/liaokuohsun/Downloads/1024.aac");
-#endif
-    return pTmp;
+   return NULL;
 }
 
 RTPSink* MediaSubsession
@@ -136,45 +162,11 @@ RTPSink* MediaSubsession
                    unsigned char rtpPayloadTypeIfDynamic,
                    FramedSource* inputSource) {
     
-#ifdef TEST_WITH_NEW_CLASS_AUDIO_BUFFER_SOURCE
-    ADTSAudioBufferSource* adtsSource = (ADTSAudioBufferSource*)inputSource;
-#else
-    ADTSAudioFileSource* adtsSource = (ADTSAudioFileSource*)inputSource;
-#endif
-    
-    RTPSink *pTmp = MPEG4GenericRTPSink::createNew(fParent.envir(), rtpGroupsock,
-                                                   rtpPayloadTypeIfDynamic,
-                                                   adtsSource->samplingFrequency(),
-                                                   "audio", "aac-hbr", adtsSource->configStr(),
-                                                   adtsSource->numChannels());
-    return pTmp;
+   return NULL;
 }
 
 Boolean MediaSubsession::createSinkObjects(int useSpecialRTPoffset)
 {
-    do {
-        // TODO: Fix me
-        clientSessionId = 0;
-        streamBitrate = 12000;
-        
-        fReadSource = createNewStreamSource(clientSessionId, streamBitrate);
-        if(!fReadSource)
-        {
-            fprintf(stderr, "MediaSubsession::createSinkObjects()  fReadSource==NULL\n");
-            break;
-        }
-        
-        fRTPSink = createNewRTPSink(fRTPSocket, 96, fReadSource);
-        
-        if(!fRTPSink)
-        {
-            fprintf(stderr, "MediaSubsession::createSinkObjects()  fRTPSink==NULL\n");
-            break;
-        }
-        
-        return True;
-    } while (0);
-    
-    return False; // an error occurred
+   return False;
 }
-// 20140703 albert.liao modified end
+// 20140706 albert.liao modified end
